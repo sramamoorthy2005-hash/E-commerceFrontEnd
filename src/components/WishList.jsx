@@ -2,6 +2,7 @@ import React from 'react'
 import { FaCircleArrowRight } from 'react-icons/fa6';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+import Addcart from './Addcart';
 
 
 const WishList = () => {
@@ -47,8 +48,9 @@ const WishList = () => {
                     <span>({item.discountPercentage}% off)</span>
                   </p>
                   <p>{item.brand}</p>
-                  
+                  <p className='w-49 mt-5'><Addcart item={item}/></p>
                 </div>
+                
               </div>
             );
           })}

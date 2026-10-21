@@ -19,12 +19,14 @@ const cartSlice = createSlice({
             const isCart = state.cartItems.find((item)=>item.id===action.payload.id);
             if(isCart){
                 isCart.quantity+=1;
+                isCart.addClick=!isCart.addClick;
             }
             else{
                 state.cartItems.push({
                     ...action.payload,
                     quantity:1,
-                    selected:true
+                    selected:true,
+                    addClick:true
                 })
             }
         },

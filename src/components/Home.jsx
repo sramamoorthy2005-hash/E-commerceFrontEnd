@@ -56,7 +56,7 @@ const Home = () => {
               <p className="mt-4 text-lg font-medium mb-5 flex justify-between">Category : {item.category} 
                 <IoIosHeart onClick={()=>dispatch(addWishList(item))} className={`text-3xl cursor-pointer ${wishcolor ? 'text-red-400' : 'text-gray-800'}`}/>
               </p>
-              <Addcart item={item}/>
+              <Addcart  item={item}/>
             </div>
           </div>
         );
