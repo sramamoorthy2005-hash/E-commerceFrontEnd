@@ -8,6 +8,9 @@ import Home from './components/Home'
 import NavBar from './components/NavBar'
 import Cart from './components/Cart'
 import ProductDetails from './components/ProductDetails'
+import WishList from './components/WishList'
+import Filtercategory from './components/Filtercategory'
+import Checkout from './components/Checkout'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,10 +18,14 @@ function App() {
   return (
     <>
       <NavBar/>
+      
       <Routes>
-          <Route path='/' element={<Home/>} />
+          <Route path='/' element={<><Filtercategory/> <Home/> </>} />
+          
           <Route path='/Cart' element={<Cart/>}/>
           <Route path='/product/:id' element={<ProductDetails/>}/>
+          <Route path='/wishlist' element={<WishList/>}/>
+          <Route path='/Checkout' element={<Checkout/>}/>
       </Routes>
     </>
   )

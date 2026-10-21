@@ -22,10 +22,13 @@ const productsSlice = createSlice({
     initialState:{
         productItems:[],
         loading:false,
-        error:null
+        error:null,
+        search:''
     },
     reducers:{
-
+        setSearch:(state,action)=>{
+            state.search = action.payload;
+        }
     },
     extraReducers:(builder)=>{
         builder
@@ -43,5 +46,5 @@ const productsSlice = createSlice({
         })
     }
 });
-
+export const {setSearch} = productsSlice.actions;
 export default productsSlice
