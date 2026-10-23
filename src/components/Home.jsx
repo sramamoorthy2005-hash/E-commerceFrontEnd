@@ -31,15 +31,15 @@ const Home = () => {
   }
 
   return (
-    <div className="grid gap-5 grid-cols-5 py-10 px-15 bg-orange-50 min-h-[50vh]">
+    <div className="grid gap-5 grid-cols-5 py-10 px-10 bg-orange-50 min-h-[80vh] max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-md:px-0 max-md:py-0 max-md:gap-0 ">
 
       {filterProducts?.map((item) => {
         let price = (item.price * item.discountPercentage) / 100 ;
          price = item.price - price
         let wishcolor = wishList.some((product)=>product.id===item.id);
         return (
-          <div className="border-2 rounded-xl shadow-xl  bg-white" key={item.id}>
-            <div onClick={()=>nav(`/product/${item.id}`)} className="h-95 border-b-2 cursor-pointer rounded-xl ">
+          <div className="border-2 max-md:border-1 rounded-xl max-md:rounded-none shadow-xl  bg-white" key={item.id}>
+            <div onClick={()=>nav(`/product/${item.id}`)} className="h-95 max-md:h-60 border-b-2 cursor-pointer rounded-xl ">
               <img
                 src={item.thumbnail}
                 alt={item.title}
@@ -47,13 +47,13 @@ const Home = () => {
               />
             </div>
             <div className="p-3">
-              <p className="text-xl font-semibold">{item.title}</p>
-              <p className="text-gray-600 text-sm mt-3 font-medium">{item.description}</p>
-              <p className="mt-3 font-medium text-gray-700"> <span className="text-3xl font-medium"><sup className="text-xl text-black">₹</sup >{price.toFixed(2)} </span>
+              <p className="text-xl font-semibold max-md:text-sm">{item.title}</p>
+              {/* <p className="text-gray-600 text-sm mt-3 font-medium">{item.description}</p> */}
+              <p className="mt-3 font-medium text-gray-700"> <span className="text-3xl font-medium max-md:text-xl">₹{price.toFixed(2)} </span>
                  M.R.P <span className="line-through">₹{item.price}</span>
                 <span>({item.discountPercentage}% off)</span>
               </p>
-              <p className="mt-4 text-lg font-medium mb-5 flex justify-between">Category : {item.category} 
+              <p className="mt-4 text-lg font-medium mb-5 flex justify-between max-md:text-sm">Category : {item.category} 
                 <IoIosHeart onClick={()=>dispatch(addWishList(item))} className={`text-3xl cursor-pointer ${wishcolor ? 'text-red-400' : 'text-gray-800'}`}/>
               </p>
               <Addcart  item={item}/>

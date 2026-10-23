@@ -29,7 +29,7 @@ const Addcart = ({ item }) => {
       ) : (
         <button
           onClick={() => dispatch(addToCart(item))}
-          className="bg-yellow-400 cursor-pointer text-white w-full hover:bg-yellow-500 py-2 rounded-xl"
+          className="bg-yellow-400 max-md:py-1 cursor-pointer text-white w-full hover:bg-yellow-500 py-2 rounded-xl"
         >
           Add to Cart
         </button>
