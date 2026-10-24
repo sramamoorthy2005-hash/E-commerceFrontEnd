@@ -22,10 +22,10 @@ function App() {
       <Routes>
           <Route path='/' element={<> <Home/> </>} />
           
-          {/*<Route path='/Cart' element={<Cart/>}/>
+          <Route path='/Cart' element={<Cart/>}/>
           <Route path='/product/:id' element={<ProductDetails/>}/>
           <Route path='/wishlist' element={<WishList/>}/>
-          <Route path='/Checkout' element={<Checkout/>}/> */}
+          <Route path='/Checkout' element={<Checkout/>}/>
       </Routes>
     </>
   )

@@ -16,18 +16,18 @@ const WishList = () => {
             </div>
     }
   return (
-    <div className="px-15 py-10  ">
+    <div className="px-15 py-10  max-md:px-5 max-md:py-5">
           <h2 className="text-3xl font-medium">Liked Products!</h2>
           {wishList.map((item) => {
             let price = (item.price * item.discountPercentage) / 100;
             price = item.price - price;
             return (
-              <div className="flex ring rounded-xl mt-5">
-                <div className="w-100  rounded-xl bg-gray-200 border-r">
+              <div className="flex ring rounded-xl mt-5 max-md:flex-col">
+                <div className="w-70  shrink-0 max-md:w-full max-md:h-80  rounded-xl bg-gray-200 border-r">
                   <img
                     src={item.thumbnail}
                     alt={item.title}
-                    className="w-full h-full object-fill"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="bg-gray-100 py-5 px-10 w-full text-wrap rounded-xl">

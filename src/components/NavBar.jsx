@@ -76,12 +76,12 @@ const NavBar = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 md:hidden">
+        <div className="fixed inset-0 z-50 md:hidden ">
           <div
             onClick={() => setIsOpen((prev) => !prev)}
             className="fixed inset-0 bg-black/30 "
           />
-          <div className="w-3/4 flex flex-col  bg-white shadow-2xl  z-10 relative h-screen bg-gray-800 ">
+          <div className="w-3/4 flex flex-col  bg-white shadow-2xl  z-10 relative h-screen bg-gray-800  ">
             <div className="flex items-center justify-between bg-gray-800 text-white px-5"
                   >
               <div className="w-20">

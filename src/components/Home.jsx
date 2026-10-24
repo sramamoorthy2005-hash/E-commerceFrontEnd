@@ -23,7 +23,7 @@ const Home = () => {
   } 
   );
   if(loading){
-    return (<div className="text-center text-4xl font-bold">Loading Products</div>)
+    return (<div className="text-center text-4xl font-bold ">Loading Products</div>)
   }
 
   if(error){
@@ -31,14 +31,14 @@ const Home = () => {
   }
 
   return (
-    <div className="grid gap-5 grid-cols-5 py-10 px-10 bg-orange-50 min-h-[80vh] max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-md:px-0 max-md:py-0 max-md:gap-0 ">
+    <div className="grid gap-5 grid-cols-5 py-10 px-10 bg-orange-50 min-h-[80vh] max-xl:grid-cols-4 max-lg:grid-cols-3 max-md:grid-cols-2 max-md:px-1 max-md:py-1 max-md:gap-1">
 
       {filterProducts?.map((item) => {
         let price = (item.price * item.discountPercentage) / 100 ;
          price = item.price - price
         let wishcolor = wishList.some((product)=>product.id===item.id);
         return (
-          <div className="border-2 max-md:border-1 rounded-xl max-md:rounded-none shadow-xl  bg-white" key={item.id}>
+          <div className="border-2 max-md:border-1 rounded-xl  shadow-xl  bg-white" key={item.id}>
             <div onClick={()=>nav(`/product/${item.id}`)} className="h-95 max-md:h-60 border-b-2 cursor-pointer rounded-xl ">
               <img
                 src={item.thumbnail}
