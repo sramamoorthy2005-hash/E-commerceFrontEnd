@@ -59,9 +59,12 @@ const cartSlice = createSlice({
             else{
                 state.wishList.push(action.payload)
             }
+        },
+        clearCart:(state)=>{
+            state.cartItems = state.cartItems.filter((item)=>item.selected === false) ;
         }
     }
 })
 
-export const {addToCart,QtyInc,QtyDec,addWishList,removeItem,toggleSelect} = cartSlice.actions;
+export const {addToCart,QtyInc,QtyDec,addWishList,removeItem,toggleSelect,clearCart} = cartSlice.actions;
 export default cartSlice

@@ -20,10 +20,10 @@ const Filtercategory = ({onFilter}) => {
   }
   if(!filters) return null;
   return (
-    <ul className="bg-black h-acto  py-3 text-white flex text-lg px-8 gap-8 max-md:flex-col max-md:h-screen">
+    <ul className=" h-auto    flex flex-col text-lg   ">
       {category.map((item)=>{
         const isActive = selectCategory.toLowerCase() === item.toLowerCase();
-        return (<li onClick={()=>(HandlesetselectCategory (item))} className={`cursor-pointer py-1 px-3 rounded-lg transition-all ease-in-out duration-300 hover:-translate-y-0.5 hover:ring ${isActive ? 'bg-gray-800 ring-2 ring-gray-600  ' : ''}`} key={item}>{item}</li>)
+        return (<li onClick={()=>(HandlesetselectCategory (item))} className={`cursor-pointer  py-2 px-8 transition-all ease-in-out duration-300  hover:bg-gray-200 ${isActive ? 'underline underline-offset-8  underline-red-900 text-orange-400 ' : ''}`} key={item}> {item}</li>)
       })}
     </ul>
   )

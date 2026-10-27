@@ -11,6 +11,7 @@ import ProductDetails from './components/ProductDetails'
 import WishList from './components/WishList'
 import Filtercategory from './components/Filtercategory'
 import Checkout from './components/Checkout'
+import Myorder from './components/Myorder'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,6 +27,7 @@ function App() {
           <Route path='/product/:id' element={<ProductDetails/>}/>
           <Route path='/wishlist' element={<WishList/>}/>
           <Route path='/Checkout' element={<Checkout/>}/>
+          <Route path='/myorder' element={<Myorder/>}/>
       </Routes>
     </>
   )

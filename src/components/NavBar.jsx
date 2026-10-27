@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaOpencart } from "react-icons/fa";
+import { FaHome, FaOpencart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setSearch } from "../products/productsSlice";
@@ -7,6 +7,9 @@ import { IoIosHeart } from "react-icons/io";
 import Filtercategory from "./Filtercategory";
 import { TbMenuDeep } from "react-icons/tb";
 import { IoClose } from "react-icons/io5";
+import { LuPackageOpen } from "react-icons/lu";
+import WishList from "./WishList";
+import { MdOutlineShoppingBag } from "react-icons/md";
 const NavBar = () => {
   const nav = useNavigate();
   const dispatch = useDispatch();
@@ -29,10 +32,10 @@ const NavBar = () => {
   return (
     <>
       <div className="bg-gray-800 flex-wrap text-white py-3  px-5 flex justify-between items-center ">
-        <div className="cursor-pointer  h-20 max-md:flex">
+        <div className="cursor-pointer  h-20 flex">
           <button
             onClick={() => setIsOpen((prev) => !prev)}
-            className="text-4xl text-orange-400 hidden max-md:block"
+            className="text-4xl text-orange-400 "
           >
             <TbMenuDeep />
           </button>
@@ -65,23 +68,20 @@ const NavBar = () => {
               {cartItems.length}
             </span>
           </div>
-          <IoIosHeart
-            className="text-3xl cursor-pointer "
-            onClick={() => nav("/wishlist")}
-          />
+          
         </div>
       </div>
-      <div className="max-md:hidden">
+      {/* <div className="max-md:hidden">
         <Filtercategory />
-      </div>
+      </div> */}
 
       {isOpen && (
-        <div className="fixed inset-0 z-50 md:hidden ">
+        <div className="fixed inset-0 z-50 ">
           <div
             onClick={() => setIsOpen((prev) => !prev)}
             className="fixed inset-0 bg-black/30 "
           />
-          <div className="w-3/4 flex flex-col  bg-white shadow-2xl  z-10 relative h-screen bg-gray-800  ">
+          <div className="w-80 max-[640px]:w-70 max-[425px]:w-60 max-[320px]:w-55 flex flex-col  bg-white shadow-2xl  z-10 relative h-screen bg-gray-800  ">
             <div className="flex items-center justify-between bg-gray-800 text-white px-5"
                   >
               <div className="w-20">
@@ -95,20 +95,39 @@ const NavBar = () => {
               
               <button
                 onClick={() => setIsOpen(false)}
-                className="text-red-600  bg-white  hover:text-white p-1 rounded-lg"
+                className="text-red-600  bg-white   p-1 rounded-lg"
               >
                 <IoClose size={24} />
               </button>
             </div>
-            <div className="bg-black flex-1 overflow-y-auto">
-              <h1 className="font-medium text-white text-lg border-b border-black py-4 px-10">Categories : </h1>
+            
+            <div className="flex-1 overflow-y-auto">
+              <div className="flex flex-col items-start border-b pb-2 border-gray-400">
+                <button onClick={()=>{nav('/'),setIsOpen(false)}} className=" cursor-pointer w-full text-start font-medium px-8 hover:bg-gray-200 py-2 flex items-center gap-2 "><FaHome className="text-xl text-sky-600" /> Home</button>
+                <button onClick={()=>{nav("/cart"),setIsOpen(false)}} className=" cursor-pointer w-full text-start font-medium px-8 hover:bg-gray-200 py-2 flex items-center gap-2"><MdOutlineShoppingBag className="text-xl text-orange-600"  /> CartList</button>
+              </div>
+                <div className="border-b border-gray-400 pb-2">
+                   <h1 className="font-bold text-gray-700  text-lg pt-5 px-8">Shop by Category </h1>
               <Filtercategory onFilter={()=>setIsOpen(false)}/>
-               <div className="text-white flex justify-between px-10 pb-2 max-[532px]:flex-col max-[532px]:gap-2 max-[532px]:text-center">
+                </div>
+                    <div className="pt-3 ">
+                 <button onClick={()=>{nav("/myorder"),setIsOpen(false)}} className=" cursor-pointer w-full text-start font-medium px-8 hover:bg-gray-200 py-2 flex items-center gap-2"> <LuPackageOpen className="text-2xl text-orange-500"/> My Orders</button></div>
+                  <button  onClick={() => {nav("/wishlist"),setIsOpen(false)}} className=" cursor-pointer w-full text-start font-medium px-8 hover:bg-gray-200 py-2 flex items-center gap-2"><IoIosHeart
+            className="text-2xl text-gray-700  "
+           
+          />WishList</button>
+
+
+          {/* <div className=" flex justify-between px-2 py-5 max-[532px]:flex-col max-[532px]:gap-2 max-[532px]:text-center">
                 <p className="text-emerald-400">Ramamoorthy</p>
                 <p className="text-sky-400">@2026 RamDevi</p>
                 <p>QuickCart</p>
-               </div>
-            </div>
+               </div> */}
+                </div>
+                
+             
+               
+            
           
           </div>
         </div>
