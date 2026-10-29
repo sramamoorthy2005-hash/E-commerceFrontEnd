@@ -56,28 +56,29 @@ const Checkout = () => {
   return (
     <>
       <section
-        className={`bg-orange-100 h-[88vh] py-6 px-15 flex items-start justify-between ${addressOpen ? "overflow-y-clip" : "overflow-y-auto"}`}
+        className={`bg-orange-100 min-h-[88vh] h-auto py-6 px-5 flex items-start justify-between max-lg:flex-col max-lg:gap-5 ${addressOpen ? "overflow-y-clip" : "overflow-y-auto"}`}
       >
-        <div className="flex-1 pr-10">
+        <div className="flex-1 w-full pr-10 max-lg:pr-0">
           {address?.length > 0 && currentAddress ? (
             <>
-              <div className="bg-white min-h-[100px] h-acto p-5">
-                <div className="flex justify-between">
+              <div className="bg-white min-h-[100px] h-acto p-5 ">
+                <div className="flex  [@media(max-width:425px)]:flex-col-reverse gap-3   justify-between">
                   <h4 className="text-lg font-normal">
                     Delivering to{" "}
-                    <span className="text-xl font-medium">
+                    <span className="text-xl text-wrap font-medium">
                       {currentAddress.name}
                     </span>{" "}
                   </h4>
-
+                  <div className="max-[425px]:w-full">
                   <button
                     onClick={() => setChange((prev) => !prev)}
-                    className={`hover:underline cursor-pointer active:text-sky-600 font-normal text-sky-700 `}
+                    className={`hover:underline  cursor-pointer active:text-sky-600 font-normal text-sky-700 `}
                   >
                     {change ? "Close" : "Change Address"}
                   </button>
+                  </div>
                 </div>
-                <p className="mt-2 mb-2 w-150  text-wrap">
+                <p className="mt-2 mb-2 w-full pr-30 max-sm:pr-10 break-words text-wrap">
                   {currentAddress.street} , {currentAddress.house} ,{" "}
                   {currentAddress.street} , {currentAddress.city} ,{" "}
                   {currentAddress.pincode} , {currentAddress.country}
@@ -131,7 +132,7 @@ const Checkout = () => {
                 )}
               </div>
 
-              <div className="bg-white mt-3 p-5">
+              <div className="bg-white w-auto mt-3 p-5">
                 <h3>Payment method</h3>
                 <div className="mt-2">
                   <div className="flex items-center gap-1 mb-1">
@@ -156,7 +157,7 @@ const Checkout = () => {
                 </div>
               </div>
 
-              <div className="bg-white mt-3 p-5">
+              <div className="bg-white w-auto mt-3 p-5 max-sm:p-2">
                 {deliveryItems?.length > 0 ? (
                   <div className="px-1 py-1 ">
                     <h2 className="text-lg">Items and Review Products</h2>
@@ -165,15 +166,15 @@ const Checkout = () => {
                       let price = (item.price * item.discountPercentage) / 100;
                       let Totalprice = item.price - price;
                       return (
-                        <div className="flex ring rounded-xl  mt-5 max-md:flex-col">
-                          <div className="w-70 h-60 shrink-0   rounded-xl bg-gray-200 border-r">
+                        <div className="flex ring rounded-xl h-auto  mt-5 max-md:flex-col">
+                          <div className=" w-auto shrink-0 max-md:h-60  rounded-xl bg-gray-200 border-r">
                             <img
                               src={item.thumbnail}
                               alt={item.title}
                               className="w-full h-full object-contain"
                             />
                           </div>
-                          <div className="bg-gray-100 py-2 px-10 w-full text-wrap rounded-xl">
+                          <div className="bg-gray-100 py-4 px-3 w-full text-wrap rounded-xl">
                             <h2 className=" text-xl font-medium">
                               {item.title}
                             </h2>
@@ -195,7 +196,7 @@ const Checkout = () => {
                               <span className="font-medium">Brand :</span>{" "}
                               {item.brand}
                             </p>
-                            <div className="w-49 mt-5">
+                            <div className="w-49 max-sm:w-auto mt-5">
                               <Addcart item={item} />
                             </div>
                           </div>
@@ -210,7 +211,8 @@ const Checkout = () => {
             </>
           ) : (
             <>
-              <div className="bg-white min-h-[100px] h-auto p-5">
+            <div className="w-full">
+              <div className="bg-white min-h-[100px]   h-auto  p-5">
                 <h4 className="text-lg font-medium">No Delivery address</h4>
 
                 <button
@@ -227,12 +229,13 @@ const Checkout = () => {
               <div className="bg-white mt-3 p-5">
                 <p>items and shipping</p>
               </div>
+              </div>
             </>
           )}
         </div>
 
         {deliveryItems?.length && address.length > 0 ? (
-          <div className="bg-white min-h-[100px] h-auto min-w-xs p-3 ">
+          <div className="bg-white min-h-[100px]  h-auto min-w-xs max-sm:min-w-full  p-3 ">
             <div className="flex flex-col gap-2 mb-2">
               <h2 className="text-center text-lg font-medium">Order Summary</h2>
               <p>
@@ -270,7 +273,7 @@ const Checkout = () => {
 
           </div>
         ) : (
-          <div className="bg-white min-h-[100px] h-auto min-w-xs p-3 ">
+          <div className="bg-white min-h-[100px]  h-auto min-w-xs max-sm:min-w-full  p-3 ">
             <div className="flex flex-col gap-2 mb-2">
               <p>
                 <span className="inline-block ">Items : ------</span>

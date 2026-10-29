@@ -75,13 +75,13 @@ const NavBar = () => {
         <Filtercategory />
       </div> */}
 
-      {isOpen && (
-        <div className="fixed inset-0 z-50 ">
+      
+        <div className={`fixed inset-0 z-50 transition-opacity duration-300  ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
           <div
             onClick={() => setIsOpen((prev) => !prev)}
-            className="fixed inset-0 bg-black/30 "
+            className="fixed inset-0 bg-black/30 transition-opacity"
           />
-          <div className="w-80 max-[640px]:w-70 max-[425px]:w-60 max-[320px]:w-55 flex flex-col  bg-white shadow-2xl  z-10 relative h-screen bg-gray-800  ">
+          <div className={`w-80 max-[640px]:w-70 max-[425px]:w-60 max-[320px]:w-55 flex flex-col  bg-white shadow-2xl  z-10 relative h-screen  transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"} `}>
             <div className="flex items-center justify-between bg-gray-800 text-white px-5"
                   >
               <div className="w-20">
@@ -131,7 +131,7 @@ const NavBar = () => {
           
           </div>
         </div>
-      )}
+    
     </>
   );
 };
