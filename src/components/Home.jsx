@@ -32,10 +32,16 @@ const Home = () => {
     return msearch && categoryFilter;
   });
   if (loading) {
-    return (
-      <div className="text-center text-4xl font-bold ">Loading Products</div>
-    );
-  }
+  return (
+    <div className="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+      {/* சுழலும் வட்டம் */}
+      <div className="w-12 h-12 border-4 border-gray-300 border-t-yellow-500 rounded-full animate-spin"></div>
+      
+      {/* Loading Text */}
+      <p className="text-gray-600 font-medium text-lg">Loading Products...</p>
+    </div>
+  );
+}
 
   if (error) {
     return (

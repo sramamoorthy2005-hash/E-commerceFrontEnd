@@ -1,4 +1,6 @@
 import React from "react";
+
+import { FcPaid } from "react-icons/fc";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +10,7 @@ const Myorder = () => {
 
   return (
     <section className="bg-orange-50 min-h-[90vh] py-6 px-4 sm:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className=" mx-auto">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800 text-center mb-6">
           My Orders
         </h1>
@@ -84,9 +86,9 @@ const Myorder = () => {
                       return (
                         <div
                           key={prod.id}
-                          className="flex items-center gap-4 border border-gray-100 rounded-xl p-3 bg-gray-50"
+                          className="flex max-[375px]:flex-col  gap-4 border  border-gray-100 rounded-xl p-3 bg-gray-50"
                         >
-                          <div onClick={() => nav(`/product/${prod.id}`)} className="w-16 h-16 shrink-0 bg-white rounded-lg p-1 border flex items-center justify-center">
+                          <div onClick={() => nav(`/product/${prod.id}`)} className="w-35 h-35 shrink-0 bg-white rounded-lg p-1 border flex items-center justify-center">
                             <img
                               src={prod.thumbnail}
                               alt={prod.title}
@@ -97,14 +99,14 @@ const Myorder = () => {
                           <div className="flex-1 min-w-0">
                             <h5
                               onClick={() => nav(`/product/${prod.id}`)}
-                              className="font-medium text-gray-800 truncate cursor-pointer hover:underline"
+                              className="font-medium text-lg text-gray-800 truncate cursor-pointer hover:underline"
                             >
                               {prod.title}
                             </h5>
-                            <p className="text-xs text-gray-500 mt-0.5">
+                            <p className="text-sm text-gray-500 mt-0.5">
                               Quantity: <span className="font-semibold">{prod.quantity || 1}</span>
                             </p>
-                            <p className="text-sm font-semibold text-gray-900 mt-1">
+                            <p className="text-lg font-semibold text-gray-900 mt-1">
                               ₹{(finalPrice * (prod.quantity || 1)).toFixed(2)}
                             </p>
                           </div>
@@ -118,6 +120,15 @@ const Myorder = () => {
           </div>
         )}
       </div>
+
+      {orders.length>0 &&(
+        <div className="py-10 flex flex-col items-center justify-center">
+        <h2 className="text-lg text-orange-400 font-bold mb-5 max-md:text-base">Your purchase has made our day! Thank you so much for supporting our small business</h2>
+        <button onClick={()=>nav('/')} className=" cursor-pointer bg-emerald-400 text-white font-medium py-1 px-5 rounded-xl flex items-center gap-2"> <FcPaid className="text-blue-400" size={25} /> Continue Shopping!</button>
+      </div>
+      )}
+      
+
     </section>
   );
 };

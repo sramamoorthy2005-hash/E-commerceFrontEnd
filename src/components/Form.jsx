@@ -46,6 +46,7 @@ const Form = ({setAddressOpen}) => {
             </label>
             <div>
               <input
+                required
                 type="text"
                 name="name"
                 value={formdata.name}
@@ -60,6 +61,7 @@ const Form = ({setAddressOpen}) => {
             </label>
             <div>
               <input
+                required
                 type="tel"
                 name="mobile"
                 value={formdata.mobile}
@@ -74,6 +76,7 @@ const Form = ({setAddressOpen}) => {
             </label>
             <div>
               <input
+                required
                 type="text"
                 name="pincode"
                 value={formdata.pincode}
@@ -89,6 +92,7 @@ const Form = ({setAddressOpen}) => {
             </label>
             <div>
               <input
+                required
                 type="text"
                 name="house"
                 value={formdata.house}
@@ -103,6 +107,7 @@ const Form = ({setAddressOpen}) => {
             </label>
             <div>
               <input
+                required
                 type="text"
                 name="street"
                 value={formdata.street}
@@ -132,6 +137,7 @@ const Form = ({setAddressOpen}) => {
               </label>
               <div>
                 <input
+                  required
                   type="text"
                   name="city"
                   value={formdata.city}
@@ -147,6 +153,7 @@ const Form = ({setAddressOpen}) => {
               </label>
               <div>
                 <select name="country"
+                required 
                   value={formdata.country}
                 onChange={handleChange}
                  className="border-2 border-gray-500 py-1 transition-all duration-300 ease-in px-4 rounded-xl focus:outline-2 focus:outline-blue-100 focus:border-sky-400  w-full mt-1"  id=""> 
