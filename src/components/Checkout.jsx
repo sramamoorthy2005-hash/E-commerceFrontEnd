@@ -104,7 +104,7 @@ const Checkout = () => {
                             </div>
                             <div>
                               <p className="text-lg font-medium">{item.name}</p>
-                              <p className=" w-150  text-wrap">
+                              <p className=" w-full  text-wrap">
                                 {item.street} , {item.house} , {item.street} ,{" "}
                                 {item.city} , {item.pincode} , {item.country}
                               </p>

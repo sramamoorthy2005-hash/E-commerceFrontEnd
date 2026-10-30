@@ -2,6 +2,7 @@ import React from 'react'
 import { FaCircleArrowRight } from 'react-icons/fa6';
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
+
 import Addcart from './Addcart';
 
 
@@ -16,7 +17,8 @@ const WishList = () => {
             </div>
     }
   return (
-    <div className="px-15 py-10  max-md:px-5 max-md:py-5">
+    <>
+    <div className="px-15 py-10 min-h-screen max-md:px-5 max-md:py-5">
           <h2 className="text-3xl font-medium">Liked Products!</h2>
           {wishList.map((item) => {
             let price = (item.price * item.discountPercentage) / 100;
@@ -31,11 +33,11 @@ const WishList = () => {
                   />
                 </div>
                 <div className="bg-gray-100 py-5 px-10 w-full text-wrap rounded-xl">
-                  <h2 className=" text-4xl font-medium">{item.title}</h2>
-                  <p className="mt-5 text-2xl font-normal text-gray-700 ">
+                  <h2 className=" text-2xl font-medium">{item.title}</h2>
+                  <p className="mt-5 text-lg font-normal text-gray-700 ">
                     {item.description}
                   </p>
-                  <p className="mt-2 font-medium text-lg">
+                  <p className="mt-2 font-medium text-base">
                     Category : {item.category}
                   </p>
                   <p className="mt-5 font-medium text-gray-700">
@@ -55,6 +57,10 @@ const WishList = () => {
             );
           })}
         </div>
+        
+        
+        
+</>
   )
 }
 

@@ -14,14 +14,14 @@ const Addcart = ({ item }) => {
   return (
     <>
       {cartItem ? (
-        <div className="flex gap-5 items-center">
-        <div className="bg-white   text-white w-full text-black ring-3 ring-orange-300 flex items-center justify-between  px-3 rounded-xl">
+        <div className="flex gap-5 max-md:gap-2 items-center">
+        <div className="bg-white   text-white w-full text-black ring-3 ring-orange-300 flex items-center justify-between py-[0px]  px-3 rounded-xl">
           <button onClick={()=>dispatch(QtyDec(cartItem.id))} className="text-black cursor-pointer">
-            <FaMinus />
+            <FaMinus size={11} />
           </button>{" "}
-          <span className="text-black text-lg">{cartItem.quantity}</span>{" "}
+          <span className="text-black text-base">{cartItem.quantity}</span>{" "}
           <button onClick={()=>dispatch(QtyInc(cartItem.id))} className="text-black cursor-pointer">
-            <FaPlus />
+            <FaPlus size={11}/>
           </button>
         </div>
         <button onClick={()=>dispatch(removeItem(cartItem.id))} className="cursor-pointer text-lg"><ImBin/></button>
@@ -29,7 +29,7 @@ const Addcart = ({ item }) => {
       ) : (
         <button
           onClick={() => dispatch(addToCart(item))}
-          className="bg-yellow-400 max-md:py-1 cursor-pointer text-white w-full hover:bg-yellow-500 py-2 rounded-xl"
+          className="bg-yellow-400  cursor-pointer text-white w-full hover:bg-yellow-500 py-1 rounded-xl"
         >
           Add to Cart
         </button>
