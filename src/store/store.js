@@ -7,12 +7,14 @@ import orderSlice from "../products/orderSlice";
 
 
 
+
 export const store = configureStore({
     reducer:{
         products:productsSlice.reducer,
         cart:cartSlice.reducer,
         filter:filter.reducer,
         form:formSlice.reducer,
-        order:orderSlice.reducer
+        order:orderSlice.reducer,
+      
     }
 });
